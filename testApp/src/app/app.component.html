@@ -1,20 +1,305 @@
-<!--The content below is only a placeholder and can be replaced.-->
-<div style="text-align:center">
-  <h1>
-    Welcome to {{ title }}!
-  </h1>
-  <img width="300" alt="Angular Logo" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNTAgMjUwIj4KICAgIDxwYXRoIGZpbGw9IiNERDAwMzEiIGQ9Ik0xMjUgMzBMMzEuOSA2My4ybDE0LjIgMTIzLjFMMTI1IDIzMGw3OC45LTQzLjcgMTQuMi0xMjMuMXoiIC8+CiAgICA8cGF0aCBmaWxsPSIjQzMwMDJGIiBkPSJNMTI1IDMwdjIyLjItLjFWMjMwbDc4LjktNDMuNyAxNC4yLTEyMy4xTDEyNSAzMHoiIC8+CiAgICA8cGF0aCAgZmlsbD0iI0ZGRkZGRiIgZD0iTTEyNSA1Mi4xTDY2LjggMTgyLjZoMjEuN2wxMS43LTI5LjJoNDkuNGwxMS43IDI5LjJIMTgzTDEyNSA1Mi4xem0xNyA4My4zaC0zNGwxNy00MC45IDE3IDQwLjl6IiAvPgogIDwvc3ZnPg==">
-</div>
-<h2>Here are some links to help you start: </h2>
-<ul>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://angular.io/tutorial">Tour of Heroes</a></h2>
-  </li>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://github.com/angular/angular-cli/wiki">CLI Documentation</a></h2>
-  </li>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://blog.angular.io/">Angular blog</a></h2>
-  </li>
-</ul>
+<h1 class="text-center">Test page for RxJS</h1>
+<h2 class="text-center">Creational operators</h2>
 
+<div class="container" id="operatordescription">
+    <div class="row">
+        <div class="col-sm-12">
+            <span>The ways howto
+                <b>create</b> observable stream</span>
+        </div>
+    </div>
+</div>
+<div class="container">
+    <div class="row">
+        <div class="col-sm-3">
+
+            <div class="card">
+                <div class="card-header">
+                    Observable .interval(1000)
+                </div>
+                <div class="card-block">
+                    <p class="card-text">{{value1$ | async}}</p>
+                </div>
+            </div>
+
+        </div>
+        <div class="col-sm-3">
+
+            <div class="card">
+                <div class="card-header">
+                    Observable .of(["a","b","c","d"]])
+                </div>
+                <div class="card-block">
+                    <p class="card-text">{{value2$ | async}}</p>
+                </div>
+            </div>
+
+        </div>
+        <div class="col-sm-3">
+
+            <div class="card">
+                <div class="card-header">
+                    Observable .from(["a","b","c","d"]])
+                </div>
+                <div class="card-block">
+                    <p class="card-text">{{value3$ | async}}</p>
+                </div>
+            </div>
+
+        </div>
+        <div class="col-sm-3">
+            <div id="asdf" class="card">
+                <div class="card-header">
+                    Observable .fromEvent(document, "mousemove"])
+                </div>
+                <div class="card-block">
+                    <p class="card-text">{{value4$ | async}}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<h2 class="text-center">Utility operators</h2>
+<div class="container" id="operatordescription">
+    <div class="row">
+        <div class="col-sm-12">
+            <span>The ways howto
+                <b>get</b> values from a observable stream</span>
+        </div>
+    </div>
+</div>
+
+
+<div class="container" id="description">
+    <div class="row">
+        <div class="col-sm-12">
+            <span>".subscribe()" is a basic operator for getting values from stream</span>
+        </div>
+    </div>
+</div>
+
+<div class="container">
+    <div class="row">
+        <div class="col-sm-3">
+
+            <div class="card">
+                <div class="card-header">
+                    .subscribe()
+                </div>
+                <div class="card-block">
+                    <p class="card-text">{{value1_subscribe}}</p>
+                </div>
+            </div>
+
+        </div>
+        <div class="col-sm-3">
+
+            <div class="card">
+                <div class="card-header">
+                    .subscribe()
+                </div>
+                <div class="card-block">
+                    <p class="card-text">{{value2_subscribe}}</p>
+                </div>
+            </div>
+
+        </div>
+        <div class="col-sm-3">
+
+            <div class="card">
+                <div class="card-header">
+                    .subscribe()
+                </div>
+                <div class="card-block">
+                    <p class="card-text">{{value3_subscribe}}</p>
+                </div>
+            </div>
+
+        </div>
+        <div class="col-sm-3">
+            <div id="asdf" class="card">
+                <div class="card-header">
+                    .subscribe()
+                </div>
+                <div class="card-block">
+                    <p class="card-text">{{value4_subscribe}}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container" id="description">
+    <div class="row">
+        <div class="col-sm-12">
+            <span>".do()" operator doesn't change the value !!! Only for logging</span>
+        </div>
+    </div>
+</div>
+
+<div class="container">
+    <div class="row">
+        <div class="col-sm-3">
+
+            <div class="card">
+                <div class="card-header">
+                    .do()
+                </div>
+                <div class="card-block">
+                    <p class="card-text">{{value1_do}}</p>
+                </div>
+            </div>
+
+        </div>
+        <div class="col-sm-3">
+
+            <div class="card">
+                <div class="card-header">
+                    .do()
+                </div>
+                <div class="card-block">
+                    <p class="card-text">{{value2_do}}</p>
+                </div>
+            </div>
+
+        </div>
+        <div class="col-sm-3">
+
+            <div class="card">
+                <div class="card-header">
+                    .do()
+                </div>
+                <div class="card-block">
+                    <p class="card-text">{{value3_do}}</p>
+                </div>
+            </div>
+
+        </div>
+        <div class="col-sm-3">
+            <div id="asdf" class="card">
+                <div class="card-header">
+                    .do()
+                </div>
+                <div class="card-block">
+                    <p class="card-text">{{value4_do}}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<h2 class="text-center">Transformation</h2>
+<div class="container" id="operatordescription">
+    <div class="row">
+        <div class="col-sm-12">
+            <span>The ways howto
+                <b>'horizontal combine / modify'</b> stream - One stream</span>
+        </div>
+    </div>
+</div>
+<div class="container" id="description">
+    <div class="row">
+        <div class="col-sm-12">
+            <span>".map()" operator is basic operator for changing value from a stream</span>
+        </div>
+    </div>
+</div>
+<div class="container">
+    <div class="row">
+        <div class="col-sm-3">
+            <div class="card">
+                <div class="card-header">
+                    .map()
+                </div>
+                <div class="card-block">
+                    <p class="card-text">{{value1_map}}</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-3">
+            <div class="card">
+                <div class="card-header">
+                    .map()
+                </div>
+                <div class="card-block">
+                    <p class="card-text">{{value2_map}}</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-3">
+            <div class="card">
+                <div class="card-header">
+                    .map()
+                </div>
+                <div class="card-block">
+                    <p class="card-text">{{value3_map}}</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-3">
+            <div class="card">
+                <div class="card-header">
+                    .map()
+                </div>
+                <div class="card-block">
+                    <p class="card-text">{{value4_map}}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<div class="container" id="description">
+    <div class="row">
+        <div class="col-sm-12">
+            <span>".mapTo()" operator change every value to </span>
+        </div>
+    </div>
+</div>
+<div class="container">
+    <div class="row">
+        <div class="col-sm-3">
+            <div class="card">
+                <div class="card-header">
+                    .mapTo()
+                </div>
+                <div class="card-block">
+                    <p class="card-text">{{value1_mapto}}</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-3">
+            <div class="card">
+                <div class="card-header">
+                    .mapTo()
+                </div>
+                <div class="card-block">
+                    <p class="card-text">{{value2_mapto}}</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-3">
+            <div class="card">
+                <div class="card-header">
+                    .mapTo()
+                </div>
+                <div class="card-block">
+                    <p class="card-text">{{value3_mapto}}</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-3">
+            <div class="card">
+                <div class="card-header">
+                    .mapTo()
+                </div>
+                <div class="card-block">
+                    <p class="card-text">{{value4_mapto}}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
