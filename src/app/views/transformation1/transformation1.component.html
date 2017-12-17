@@ -1,0 +1,337 @@
+<h2 class="text-center">Creational operators</h2>
+
+<div class="container" id="operatordescription">
+    <div class="row">
+        <div class="col-sm-12">
+            <span>The ways howto
+                <b>create</b> observable stream</span>
+        </div>
+    </div>
+</div>
+<div class="container">
+    <div class="row">
+        <div class="col-sm-2">
+
+            <div class="card">
+                <div class="card-header">
+                    Observable .interval(1000)
+                </div>
+                <div class="card-block">
+                    <p class="card-text">{{value1$ | async}}</p>
+                </div>
+            </div>
+
+        </div>
+        <div class="col-sm-2">
+
+            <div class="card">
+                <div class="card-header">
+                    Observable .of(["a","b","c","d"]])
+                </div>
+                <div class="card-block">
+                    <p class="card-text">{{value2$ | async}}</p>
+                </div>
+            </div>
+
+        </div>
+        <div class="col-sm-2">
+
+            <div class="card">
+                <div class="card-header">
+                    Observable .from(["a","b","c","d"]])
+                </div>
+                <div class="card-block">
+                    <p class="card-text">{{value3$ | async}}</p>
+                </div>
+            </div>
+
+        </div>
+        <div class="col-sm-2">
+            <div id="asdf" class="card">
+                <div class="card-header">
+                    Observable .fromEvent(document, "mousemove"])
+                </div>
+                <div class="card-block">
+                    <p class="card-text">{{value4$ | async}}</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-2">
+            <div id="asdf" class="card">
+                <div class="card-header">
+                    Observable .fromEvent(button, "click"])
+                </div>
+                <div class="card-body">
+                    <button id="mybutton">CLICK</button>
+                </div>
+                <div class="card-block">
+                    <p class="card-text">{{value5$ | async}}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<h2 class="text-center">Transformation</h2>
+<div class="container" id="operatordescription">
+    <div class="row">
+        <div class="col-sm-12">
+            <span>The ways howto
+                <b>'horizontal combine / modify'</b> stream - One stream</span>
+        </div>
+    </div>
+</div>
+<div class="container" id="description">
+    <div class="row">
+        <div class="col-sm-12">
+            <span>".map()" operator is basic operator for changing value from a stream</span>
+        </div>
+    </div>
+</div>
+<div class="container">
+    <div class="row">
+        <div class="col-sm-2">
+            <div class="card">
+                <div class="card-header">
+                    .map()
+                </div>
+                <div class="card-block">
+                    <p class="card-text">{{value1_map}}</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-2">
+            <div class="card">
+                <div class="card-header">
+                    .map()
+                </div>
+                <div class="card-block">
+                    <p class="card-text">{{value2_map}}</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-2">
+            <div class="card">
+                <div class="card-header">
+                    .map()
+                </div>
+                <div class="card-block">
+                    <p class="card-text">{{value3_map}}</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-2">
+            <div class="card">
+                <div class="card-header">
+                    .map()
+                </div>
+                <div class="card-block">
+                    <p class="card-text">{{value4_map}}</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-2">
+            <div class="card">
+                <div class="card-header">
+                    .map()
+                </div>
+                <div class="card-block">
+                    <p class="card-text">{{value5_map}}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<div class="container" id="description">
+    <div class="row">
+        <div class="col-sm-12">
+            <span>".mapTo()" operator change every value to </span>
+        </div>
+    </div>
+</div>
+<div class="container">
+    <div class="row">
+        <div class="col-sm-2">
+            <div class="card">
+                <div class="card-header">
+                    .mapTo()
+                </div>
+                <div class="card-block">
+                    <p class="card-text">{{value1_mapto}}</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-2">
+            <div class="card">
+                <div class="card-header">
+                    .mapTo()
+                </div>
+                <div class="card-block">
+                    <p class="card-text">{{value2_mapto}}</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-2">
+            <div class="card">
+                <div class="card-header">
+                    .mapTo()
+                </div>
+                <div class="card-block">
+                    <p class="card-text">{{value3_mapto}}</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-2">
+            <div class="card">
+                <div class="card-header">
+                    .mapTo()
+                </div>
+                <div class="card-block">
+                    <p class="card-text">{{value4_mapto}}</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-2">
+            <div class="card">
+                <div class="card-header">
+                    .mapTo()
+                </div>
+                <div class="card-block">
+                    <p class="card-text">{{value5_mapto}}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<div class="container" id="description">
+    <div class="row">
+        <div class="col-sm-12">
+            <span>".mergeMap()" ?????? </span>
+        </div>
+    </div>
+</div>
+<div class="container">
+    <div class="row">
+        <div class="col-sm-2">
+            <div class="card">
+                <div class="card-header">
+                    .mergeMap()
+                </div>
+                <div class="card-block">
+                    <p class="card-text">{{value1_mergemap}}</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-2">
+            <div class="card">
+                <div class="card-header">
+                    .mergeMap()
+                </div>
+                <div class="card-block">
+                    <p class="card-text">{{value2_mergemap}}</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-2">
+            <div class="card">
+                <div class="card-header">
+                    .mergeMap()
+                </div>
+                <div class="card-block">
+                    <p class="card-text">{{value3_mergemap}}</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-2">
+            <div class="card">
+                <div class="card-header">
+                    .mergeMap()
+                </div>
+                <div class="card-block">
+                    <p class="card-text">{{value4_mergemap}}</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-2">
+            <div class="card">
+                <div class="card-header">
+                    .mergeMap()
+                </div>
+                <div class="card-block">
+                    <p class="card-text">{{value5_mergemap}}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<div class="container" id="description">
+    <div class="row">
+        <div class="col-sm-12">
+            <span>".switchMap()" ?????? </span>
+        </div>
+    </div>
+</div>
+<div class="container">
+    <div class="row">
+        <div class="col-sm-2">
+            <div class="card">
+                <div class="card-header">
+                    .switchMap()
+                </div>
+                <div class="card-block">
+                    <p class="card-text">{{value1_switchmap}}</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-2">
+            <div class="card">
+                <div class="card-header">
+                    .switchMap()
+                </div>
+                <div class="card-block">
+                    <p class="card-text">{{value2_switchmap}}</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-2">
+            <div class="card">
+                <div class="card-header">
+                    .switchMap()
+                </div>
+                <div class="card-block">
+                    <p class="card-text">{{value3_switchmap}}</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-2">
+            <div class="card">
+                <div class="card-header">
+                    .switchMap()
+                </div>
+                <div class="card-block">
+                    <p class="card-text">{{value4_switchmap}}</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-2">
+            <div class="card">
+                <div class="card-header">
+                    .switchMap()
+                </div>
+                <div class="card-block">
+                    <p class="card-text">{{value5_switchmap}}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

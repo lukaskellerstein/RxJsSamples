@@ -5,18 +5,22 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppComponent } from './app.component';
 import { MymaterialModule } from './/mymaterial.module';
 import { MybootstrapModule } from './/mybootstrap.module';
-import { HomeComponent } from './views/home/home.component';
-import { AboutComponent } from './views/about/about.component';
-import { ContactComponent } from './views/contact/contact.component';
 import { MyrouterModule } from './/myrouter.module';
+import { CreatereadComponent } from './views/createread/createread.component';
+import { Transformation1Component } from './views/transformation1/transformation1.component';
+import { Transformation2Component } from './views/transformation2/transformation2.component';
+import { HomeComponent } from './views/home/home.component';
+import { Transformation3Component } from './views/transformation3/transformation3.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
+    CreatereadComponent,
+    Transformation1Component,
+    Transformation2Component,
     HomeComponent,
-    AboutComponent,
-    ContactComponent
+    Transformation3Component
   ],
   imports: [
     BrowserModule,

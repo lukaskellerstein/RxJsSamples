@@ -1,0 +1,152 @@
+<h2 class="text-center">Creational operators</h2>
+<div class="container" id="operatordescription">
+  <div class="row">
+      <div class="col-sm-12">
+          <span>The ways howto
+              <b>create</b> observable stream</span>
+      </div>
+  </div>
+</div>
+
+<button id="mybutton">CLICK</button>
+<div>
+    Original value: {{value1}}
+</div>
+
+
+<h2 class="text-center">Transformation</h2>
+<div class="container" id="operatordescription">
+  <div class="row">
+      <div class="col-sm-12">
+          <span>The ways howto
+              <b>'horizontal combine / modify'</b> stream - One stream</span>
+      </div>
+  </div>
+</div>
+<div class="container" id="operatordescription">
+    <div class="row">
+        <div class="col-sm-12">
+            <span>The ways howto
+                <b>transform</b> observable stream</span>
+        </div>
+    </div>
+</div>
+
+<div class="container">
+    <div class="row">
+        <div class="col-sm-3">
+
+            <div class="card">
+                <div class="card-header">
+                    .map() value;
+                </div>
+                <div class="card-block">
+                    <p class="card-text">{{value1_a}}</p>
+                </div>
+            </div>
+
+        </div>
+        <div class="col-sm-3">
+
+            <div class="card">
+                <div class="card-header">
+                    .mergeMap() Observable.of(value);
+                </div>
+                <div class="card-block">
+                    <p class="card-text">{{value1_b}}</p>
+                </div>
+            </div>
+
+        </div>
+        <div class="col-sm-3">
+
+            <div class="card">
+                <div class="card-header">
+                    .switchMap() Observable.of(value);
+                </div>
+                <div class="card-block">
+                    <p class="card-text">{{value1_c}}</p>
+                </div>
+            </div>
+
+        </div>
+        <div class="col-sm-3">
+
+            <div class="card">
+                <div class="card-header">
+                    .concatMap() Observable.of(value);
+                </div>
+                <div class="card-block">
+                    <p class="card-text">{{value1_d}}</p>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+</div>
+
+
+
+
+
+<div class="container">
+    <div class="row">
+        <div class="col-sm-3">
+
+            <div class="card mydisable">
+                <div class="card-header">
+                    .map() Observable.interval(1000)
+                </div>
+                <div class="card-block">
+                    <p class="card-text">CAN'T</p>
+                </div>
+            </div>
+
+        </div>
+        <div class="col-sm-3">
+
+            <div class="card myattention">
+                <div class="card-header">
+                    .mergeMap() Observable.interval(1000)
+                </div>
+                <div class="card-block">
+                    <p class="card-text">{{value2_b}}</p>
+                </div>
+            </div>
+
+        </div>
+        <div class="col-sm-3">
+
+            <div class="card myattention">
+                <div class="card-header">
+                    .switchMap() Observable.interval(1000)
+                </div>
+                <div class="card-block">
+                    <p class="card-text">{{value2_c}}</p>
+                </div>
+            </div>
+
+        </div>
+        <div class="col-sm-3">
+
+            <div class="card myattention">
+                <div class="card-header">
+                    .concatMap() Observable.interval(1000)
+                </div>
+                <div class="card-block">
+                    <p class="card-text">{{value2_d}}</p>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+</div>
+
+
+
+<div class="alert alert-warning" role="alert">
+  <strong>ATTNETION! Try multiple clicks and look at values in mergeMap, switchMap, concatMap</strong>
+</div>
+
