@@ -35,36 +35,38 @@ export class Transformation2Component implements OnInit {
   
       Observable.fromEvent(b, 'click')
         .map((value: MouseEvent) => {
-          return value.timeStamp.toString();
+          return value.timeStamp.toString() + "x";
         })
         .subscribe((value) => {
           this.value1_a = value.toString();
         });
+
+
+      Observable.fromEvent(b, 'click')
+      .concatMap((value: MouseEvent) => {
+        return Observable.of(value.timeStamp.toString() + "x");
+      })
+      .subscribe((value) => {
+        this.value1_b = value.toString();
+      });
   
       Observable.fromEvent(b, 'click')
         .mergeMap((value: MouseEvent) => {
-          return Observable.of(value.timeStamp.toString());
-        })
-        .subscribe((value) => {
-          this.value1_b = value.toString();
-        });
-  
-  
-      Observable.fromEvent(b, 'click')
-        .switchMap((value: MouseEvent) => {
-          return Observable.of(value.timeStamp.toString());
+          return Observable.of(value.timeStamp.toString() + "x");
         })
         .subscribe((value) => {
           this.value1_c = value.toString();
         });
   
+  
       Observable.fromEvent(b, 'click')
-        .concatMap((value: MouseEvent) => {
-          return Observable.of(value.timeStamp.toString());
+        .switchMap((value: MouseEvent) => {
+          return Observable.of(value.timeStamp.toString() + "x");
         })
         .subscribe((value) => {
           this.value1_d = value.toString();
         });
+  
   
   
   
@@ -76,17 +78,18 @@ export class Transformation2Component implements OnInit {
         .subscribe((value) => {
           this.value2_a = value.toString();
         });
+
+
+      Observable.fromEvent(b, 'click')
+      .concatMap((value: MouseEvent) => {
+        return Observable.interval(1000);
+      })
+      .subscribe((value) => {
+        this.value2_b = value.toString();
+      });
   
       Observable.fromEvent(b, 'click')
         .mergeMap((value: MouseEvent) => {
-          return Observable.interval(1000);
-        })
-        .subscribe((value) => {
-          this.value2_b = value.toString();
-        });
-  
-      Observable.fromEvent(b, 'click')
-        .switchMap((value: MouseEvent) => {
           return Observable.interval(1000);
         })
         .subscribe((value) => {
@@ -94,12 +97,13 @@ export class Transformation2Component implements OnInit {
         });
   
       Observable.fromEvent(b, 'click')
-        .concatMap((value: MouseEvent) => {
+        .switchMap((value: MouseEvent) => {
           return Observable.interval(1000);
         })
         .subscribe((value) => {
           this.value2_d = value.toString();
         });
+  
   
   
     }

@@ -1,10 +1,10 @@
 <h2 class="text-center">Creational operators</h2>
 <div class="container" id="operatordescription">
   <div class="row">
-      <div class="col-sm-12">
-          <span>The ways howto
-              <b>create</b> observable stream</span>
-      </div>
+    <div class="col-sm-12">
+      <span>The ways howto
+        <b>create</b> observable stream</span>
+    </div>
   </div>
 </div>
 
@@ -13,194 +13,226 @@
 </div>
 
 
+
 <h2 class="text-center">Transformation</h2>
 <div class="container" id="operatordescription">
-  <div class="row">
-      <div class="col-sm-12">
-          <span>The ways howto
-              <b>'horizontal combine / modify'</b> stream - One stream</span>
-      </div>
-  </div>
+    <div class="row">
+        <div class="col-sm-12">
+            <span>The ways howto
+                <b>'horizontal combine / modify'</b> stream into another stream
+            </span>
+        </div>
+    </div>
 </div>
 
 <div class="container">
-  <div class="row">
-    <div class="col-sm-3">
+    <div class="row">
+        <div class="col-sm-3">
 
-      <div class="card">
-        <div class="card-header">
-          <div>.map()</div> 
-          <div>return value;</div>
+            <div class="card">
+                <h3 class="card-header">.map()</h3>
+                <img class="card-img-top" src="assets/img/map.png" alt="Card image cap">
+            </div>
+
         </div>
-        <div class="card-block">
-          <p class="card-text">{{value1_a}}</p>
+        <div class="col-sm-3">
+
+            <div class="card">
+                <h3 class="card-header">.concatMap()</h3>
+                <img class="card-img-top" src="assets/img/concatmap.png" alt="Card image cap">
+            </div>
+
         </div>
-      </div>
+        <div class="col-sm-3">
+
+            <div class="card">
+                <h3 class="card-header">.mergeMap() = .flatMap()</h3>
+                <img class="card-img-top" src="assets/img/flatmap.png" alt="Card image cap">
+            </div>
+
+        </div>
+
+        <div class="col-sm-3">
+
+            <div class="card">
+                <h3 class="card-header">.switchMap()</h3>
+                <img class="card-img-top" src="assets/img/switchmap.png" alt="Card image cap">
+            </div>
+        </div>
 
     </div>
-    <div class="col-sm-3">
-
-      <div class="card">
-        <div class="card-header">
-          <div>.mergeMap()</div> 
-          <div>return Observable.of(value);</div>
-        </div>
-        <div class="card-block">
-          <p class="card-text">{{value1_b}}</p>
-        </div>
-      </div>
-
-    </div>
-    <div class="col-sm-3">
-
-      <div class="card">
-        <div class="card-header">
-          .switchMap() return Observable .of(value);
-        </div>
-        <div class="card-block">
-          <p class="card-text">{{value1_c}}</p>
-        </div>
-      </div>
-
-    </div>
-    <div class="col-sm-3">
-
-      <div class="card">
-        <div class="card-header">
-          .concatMap() return Observable .of(value);
-        </div>
-        <div class="card-block">
-          <p class="card-text">{{value1_d}}</p>
-        </div>
-      </div>
-
-    </div>
-
-  </div>
 </div>
-
-
-
 
 
 <div class="container">
-  <div class="row">
-    <div class="col-sm-3">
+    <div class="row">
+        <div class="col-sm-3">
 
-      <div class="card mydisable">
-        <div class="card-header">
-          .map() return Observable .interval(1000)
+            <div class="card">
+                <div class="card-header">
+                    return value + "x";
+                </div>
+                <div class="card-block">
+                    <p class="card-text">{{value1_a}}</p>
+                </div>
+            </div>
+
         </div>
-        <div class="card-block">
-          <p class="card-text">CAN'T</p>
+        <div class="col-sm-3">
+
+            <div class="card">
+                <div class="card-header">
+                    return Observable.of(value+ "x");
+                </div>
+                <div class="card-block">
+                    <p class="card-text">{{value1_b}}</p>
+                </div>
+            </div>
+
         </div>
-      </div>
+        <div class="col-sm-3">
+
+            <div class="card">
+                <div class="card-header">
+                    return Observable.of(value+ "x");
+                </div>
+                <div class="card-block">
+                    <p class="card-text">{{value1_c}}</p>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="col-sm-3">
+
+            <div class="card">
+                <div class="card-header">
+                    return Observable.of(value+ "x");
+                </div>
+                <div class="card-block">
+                    <p class="card-text">{{value1_d}}</p>
+                </div>
+            </div>
+
+        </div>
 
     </div>
-    <div class="col-sm-3">
-
-      <div class="card">
-        <div class="card-header">
-          .mergeMap() return Observable .interval(1000)
-        </div>
-        <div class="card-block">
-          <p class="card-text">{{value2_b}}</p>
-        </div>
-      </div>
-
-    </div>
-    <div class="col-sm-3">
-
-      <div class="card">
-        <div class="card-header">
-          .switchMap() return Observable .interval(1000)
-        </div>
-        <div class="card-block">
-          <p class="card-text">{{value2_c}}</p>
-        </div>
-      </div>
-
-    </div>
-    <div class="col-sm-3">
-
-      <div class="card">
-        <div class="card-header">
-          .concatMap() return Observable .interval(1000)
-        </div>
-        <div class="card-block">
-          <p class="card-text">{{value2_d}}</p>
-        </div>
-      </div>
-
-    </div>
-
-  </div>
 </div>
-
-
-
-
-
 
 <div class="container">
-  <div class="row">
-    <div class="col-sm-3">
+    <div class="row">
+        <div class="col-sm-3">
 
-      <div class="card mydisable">
-        <div class="card-header">
-          <div>.map()</div>
-          <div>return Observable</div>
-          <div>.of(value)</div>
-          <div>.Delay(randomNumber)</div>
+            <div class="card mydisable">
+                <div class="card-header">
+                    return Observable.interval(1000)
+                </div>
+                <div class="card-block">
+                    <p class="card-text">CAN'T</p>
+                </div>
+            </div>
+
         </div>
-        <div class="card-block">
-          <p class="card-text">CAN'T</p>
+        <div class="col-sm-3">
+
+            <div class="card">
+                <div class="card-header">
+                    return Observable.interval(1000)
+                </div>
+                <div class="card-block">
+                    <p class="card-text">{{value2_b}}</p>
+                </div>
+            </div>
+
         </div>
-      </div>
+        <div class="col-sm-3">
+
+            <div class="card">
+                <div class="card-header">
+                    return Observable.interval(1000)
+                </div>
+                <div class="card-block">
+                    <p class="card-text">{{value2_c}}</p>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="col-sm-3">
+
+            <div class="card">
+                <div class="card-header">
+                    return Observable.interval(1000)
+                </div>
+                <div class="card-block">
+                    <p class="card-text">{{value2_d}}</p>
+                </div>
+            </div>
+
+        </div>
 
     </div>
-    <div class="col-sm-3">
+</div>
 
-      <div class="card myattention">
-        <div class="card-header">
-          .mergeMap() return Observable .of(value) .Delay(randomNumber)
+<div class="container">
+    <div class="row">
+        <div class="col-sm-3">
+
+            <div class="card mydisable">
+                <div class="card-header">
+                    return Observable.of(value + "x") .Delay(randomNumber)
+                </div>
+                <div class="card-block">
+                    <p class="card-text">CAN'T</p>
+                </div>
+            </div>
+
         </div>
-        <div class="card-block">
-          <p class="card-text">{{value3_b}}</p>
+        <div class="col-sm-3">
+
+            <div class="card myattention">
+                <div class="card-header">
+                    return Observable.of(value + "x") .Delay(randomNumber)
+                </div>
+                <div class="card-block">
+                    <p class="card-text">{{value3_b}}</p>
+                </div>
+            </div>
+
         </div>
-      </div>
+        <div class="col-sm-3">
+
+            <div class="card myattention">
+                <div class="card-header">
+                    return Observable.of(value + "x") .Delay(randomNumber)
+                </div>
+                <div class="card-block">
+                    <p class="card-text">{{value3_c}}</p>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="col-sm-3">
+
+            <div class="card myattention">
+                <div class="card-header">
+                    return Observable.of(value + "x") .Delay(randomNumber)
+                </div>
+                <div class="card-block">
+                    <p class="card-text">{{value3_d}}</p>
+                </div>
+            </div>
+
+        </div>
 
     </div>
-    <div class="col-sm-3">
-
-      <div class="card myattention">
-        <div class="card-header">
-          .switchMap() Observable.of(value).Delay(randomNumber)
-        </div>
-        <div class="card-block">
-          <p class="card-text">{{value3_c}}</p>
-        </div>
-      </div>
-
-    </div>
-    <div class="col-sm-3">
-
-      <div class="card myattention">
-        <div class="card-header">
-          .concatMap() Observable.of(value).Delay(randomNumber)
-        </div>
-        <div class="card-block">
-          <p class="card-text">{{value3_d}}</p>
-        </div>
-      </div>
-
-    </div>
-
-  </div>
 </div>
 
 
 
-<div class="alert alert-warning" role="alert">
-  <strong>ATTNETION! Look at order of values in mergeMap, switchMap, concatMap</strong>
+
+
+<div class="alert alert-success" role="alert">
+    <strong>ATTENTION! Try multiple clicks (for example 10x) and look at values in mergeMap, switchMap, concatMap</strong>
 </div>

@@ -53,12 +53,20 @@ export class Transformation3Component implements OnInit {
           this.value1_a = value;
         });
   
+        Observable.from(b)
+        .concatMap((value) => {
+          return Observable.of(value+ "x");
+        })
+        .subscribe((value) => {
+          this.value1_b = value.toString();
+        });
+
       Observable.from(b)
         .mergeMap((value) => {
           return Observable.of(value+ "x");
         })
         .subscribe((value) => {
-          this.value1_b = value;
+          this.value1_c = value;
         });
   
   
@@ -67,16 +75,10 @@ export class Transformation3Component implements OnInit {
           return Observable.of(value+ "x");
         })
         .subscribe((value) => {
-          this.value1_c = value.toString();
-        });
-  
-      Observable.from(b)
-        .concatMap((value) => {
-          return Observable.of(value+ "x");
-        })
-        .subscribe((value) => {
           this.value1_d = value.toString();
         });
+  
+      
   
   
   
@@ -88,9 +90,9 @@ export class Transformation3Component implements OnInit {
         .subscribe((value) => {
           this.value2_a = value.toString();
         });
-  
-      Observable.from(b)
-        .mergeMap((value) => {
+
+        Observable.from(b)
+        .concatMap((value) => {
           return Observable.interval(1000);
         })
         .subscribe((value) => {
@@ -98,7 +100,7 @@ export class Transformation3Component implements OnInit {
         });
   
       Observable.from(b)
-        .switchMap((value) => {
+        .mergeMap((value) => {
           return Observable.interval(1000);
         })
         .subscribe((value) => {
@@ -106,12 +108,14 @@ export class Transformation3Component implements OnInit {
         });
   
       Observable.from(b)
-        .concatMap((value) => {
+        .switchMap((value) => {
           return Observable.interval(1000);
         })
         .subscribe((value) => {
           this.value2_d = value.toString();
         });
+  
+      
   
   
   
@@ -125,9 +129,9 @@ export class Transformation3Component implements OnInit {
         .subscribe((value) => {
           this.value3_a = value.toString();
         });
-  
-      Observable.from(b)
-        .mergeMap((value) => {
+
+        Observable.from(b)
+        .concatMap((value) => {
           let rndN = Math.round(Math.random()*10000);
           return Observable.of(value + "x").delay(rndN);
         })
@@ -136,11 +140,12 @@ export class Transformation3Component implements OnInit {
           {
             this.value3_b="";
           }
-          this.value3_b = this.value3_b +value.toString();
+          this.value3_b = this.value3_b + value.toString();
         });
   
+  
       Observable.from(b)
-        .switchMap((value) => {
+        .mergeMap((value) => {
           let rndN = Math.round(Math.random()*10000);
           return Observable.of(value + "x").delay(rndN);
         })
@@ -149,11 +154,11 @@ export class Transformation3Component implements OnInit {
           {
             this.value3_c="";
           }
-          this.value3_c = this.value3_c  + value.toString();
+          this.value3_c = this.value3_c +value.toString();
         });
   
       Observable.from(b)
-        .concatMap((value) => {
+        .switchMap((value) => {
           let rndN = Math.round(Math.random()*10000);
           return Observable.of(value + "x").delay(rndN);
         })
@@ -162,9 +167,10 @@ export class Transformation3Component implements OnInit {
           {
             this.value3_d="";
           }
-          this.value3_d = this.value3_d + value.toString();
+          this.value3_d = this.value3_d  + value.toString();
         });
   
+      
   
   
       

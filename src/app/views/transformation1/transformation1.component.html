@@ -8,6 +8,8 @@
         </div>
     </div>
 </div>
+
+
 <div class="container">
     <div class="row">
         <div class="col-sm-2">
@@ -26,7 +28,7 @@
 
             <div class="card">
                 <div class="card-header">
-                    Observable .of(["a","b","c","d"]])
+                    Observable .of( ["a","b","c","d"] )
                 </div>
                 <div class="card-block">
                     <p class="card-text">{{value2$ | async}}</p>
@@ -38,7 +40,7 @@
 
             <div class="card">
                 <div class="card-header">
-                    Observable .from(["a","b","c","d"]])
+                    Observable .from( ["a","b","c","d"] )
                 </div>
                 <div class="card-block">
                     <p class="card-text">{{value3$ | async}}</p>
@@ -49,7 +51,7 @@
         <div class="col-sm-2">
             <div id="asdf" class="card">
                 <div class="card-header">
-                    Observable .fromEvent(document, "mousemove"])
+                    Observable .fromEvent( document, "mousemove")
                 </div>
                 <div class="card-block">
                     <p class="card-text">{{value4$ | async}}</p>
@@ -59,7 +61,7 @@
         <div class="col-sm-2">
             <div id="asdf" class="card">
                 <div class="card-header">
-                    Observable .fromEvent(button, "click"])
+                    Observable .fromEvent( button, "click"])
                 </div>
                 <div class="card-body">
                     <button id="mybutton">CLICK</button>
@@ -72,19 +74,28 @@
     </div>
 </div>
 
+
 <h2 class="text-center">Transformation</h2>
 <div class="container" id="operatordescription">
     <div class="row">
         <div class="col-sm-12">
             <span>The ways howto
-                <b>'horizontal combine / modify'</b> stream - One stream</span>
+              <b>'horizontal combine / modify'</b> stream into another stream
+            </span>
         </div>
     </div>
 </div>
+
+
+<div class="alert alert-success" role="alert">
+  <strong>Multiple ways howto change result value.</strong>
+</div>
+
+
 <div class="container" id="description">
     <div class="row">
         <div class="col-sm-12">
-            <span>".map()" operator is basic operator for changing value from a stream</span>
+            <span><b>.map()</b> operator only change a value. No new stream.</span>
         </div>
     </div>
 </div>
@@ -93,7 +104,7 @@
         <div class="col-sm-2">
             <div class="card">
                 <div class="card-header">
-                    .map()
+                    return value + "AAA";
                 </div>
                 <div class="card-block">
                     <p class="card-text">{{value1_map}}</p>
@@ -148,7 +159,7 @@
 <div class="container" id="description">
     <div class="row">
         <div class="col-sm-12">
-            <span>".mapTo()" operator change every value to </span>
+            <span><b>.mapTo()</b> operator change every value to static value. No new stream. </span>
         </div>
     </div>
 </div>
@@ -157,7 +168,7 @@
         <div class="col-sm-2">
             <div class="card">
                 <div class="card-header">
-                    .mapTo()
+                    .mapTo("Hello")
                 </div>
                 <div class="card-block">
                     <p class="card-text">{{value1_mapto}}</p>
@@ -212,7 +223,7 @@
 <div class="container" id="description">
     <div class="row">
         <div class="col-sm-12">
-            <span>".mergeMap()" ?????? </span>
+            <span><b>.mergeMap()</b> operator creates entire new stream on each value. </span>
         </div>
     </div>
 </div>
@@ -221,7 +232,7 @@
         <div class="col-sm-2">
             <div class="card">
                 <div class="card-header">
-                    .mergeMap()
+                    return Observable.of( value + "AAA" )
                 </div>
                 <div class="card-block">
                     <p class="card-text">{{value1_mergemap}}</p>
@@ -277,7 +288,7 @@
 <div class="container" id="description">
     <div class="row">
         <div class="col-sm-12">
-            <span>".switchMap()" ?????? </span>
+            <span><b>.switchMap()</b> operator creates entire new stream on each value. </span>
         </div>
     </div>
 </div>
@@ -286,7 +297,7 @@
         <div class="col-sm-2">
             <div class="card">
                 <div class="card-header">
-                    .switchMap()
+                  return Observable.of( value + "AAA" )
                 </div>
                 <div class="card-block">
                     <p class="card-text">{{value1_switchmap}}</p>

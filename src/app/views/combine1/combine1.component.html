@@ -1,0 +1,133 @@
+<h2 class="text-center">Creational operators</h2>
+<div class="container" id="operatordescription">
+  <div class="row">
+    <div class="col-sm-12">
+      <span>The ways howto
+        <b>create</b> observable stream</span>
+    </div>
+  </div>
+</div>
+
+<div>
+  Stream 1 ............... {{value1}}
+</div>
+<div>
+  Stream 2 ............... {{value2}}
+</div>
+<div>
+  Stream 3 ............... {{value3}}
+</div>
+
+
+<div class="alert alert-success" role="alert">
+  <strong>NO TIME MATTERS. Each stream is closed, final. We only merging streams together.</strong>
+</div>
+
+
+<h2 class="text-center">Combination</h2>
+<div class="container" id="operatordescription">
+  <div class="row">
+    <div class="col-sm-12">
+      <span>The ways howto
+        <b>'verticaly combine'</b> stream with other stream</span>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-sm-2">
+
+      <div class="card">
+        <div class="card-header">
+          .concat( stream1, stream2, stream3 );
+        </div>
+        <div class="card-block">
+          <p class="card-text">{{value1_a}}</p>
+        </div>
+      </div>
+
+    </div>
+    <div class="col-sm-2">
+
+      <div class="card">
+        <div class="card-header">
+          .merge( stream1, stream2, stream3 ); 
+        </div>
+        <div class="card-block">
+          <p class="card-text">{{value1_b}}</p>
+        </div>
+      </div>
+
+    </div>
+    <div class="col-sm-2">
+
+      <div class="card">
+        <div class="card-header">
+          .combineLatest( stream1, stream2, stream3 );
+        </div>
+        <div class="card-block">
+          <p class="card-text">{{value1_c}}</p>
+        </div>
+      </div>
+
+    </div>
+    <div class="col-sm-2">
+
+      <div class="card">
+        <div class="card-header">
+          .forkjoin( stream1, stream2, stream3 );
+        </div>
+        <div class="card-block">
+          <p class="card-text">{{value1_d}}</p>
+        </div>
+      </div>
+
+    </div>
+    <div class="col-sm-2">
+
+      <div class="card">
+        <div class="card-header">
+          .zip( stream1, stream2, stream3 );
+        </div>
+        <div class="card-block">
+          <p class="card-text">{{value1_e}}</p>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+</div>
+
+<div class="alert alert-success" role="alert">
+  For better understanding, look on next examples. <strong>In this example everything works as expected. </strong>
+</div>
+
+
+<div class="alert alert-danger" role="alert">
+  <strong>CONCAT() - ONE VALUE - ORDERED </strong>
+</div>
+
+
+<div class="alert alert-danger" role="alert">
+  <strong>MERGE() - ONE VALUE - AS IS</strong>
+</div>
+
+
+<div class="alert alert-info" role="alert">
+  <strong>ZIP() - ALL VALUES - ORDERED</strong>
+</div>
+
+<div class="alert alert-info" role="alert">
+  <strong>COMBINE LATEST() - ALL VALUES - AS IS</strong>
+</div>
+
+<div class="alert alert-warning" role="alert">
+  <strong>FORK JOIN() - work only on CLOSED streams</strong>
+</div>
+
+
+
+
+

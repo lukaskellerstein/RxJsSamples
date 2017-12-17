@@ -11,6 +11,11 @@ import { Transformation1Component } from './views/transformation1/transformation
 import { Transformation2Component } from './views/transformation2/transformation2.component';
 import { HomeComponent } from './views/home/home.component';
 import { Transformation3Component } from './views/transformation3/transformation3.component';
+import { Transformation4Component } from './views/transformation4/transformation4.component';
+import { Combine1Component } from './views/combine1/combine1.component';
+import { Combine2Component } from './views/combine2/combine2.component';
+import { Combine3Component } from './views/combine3/combine3.component';
+import { Combine4Component } from './views/combine4/combine4.component';
 
 
 @NgModule({
@@ -20,7 +25,12 @@ import { Transformation3Component } from './views/transformation3/transformation
     Transformation1Component,
     Transformation2Component,
     HomeComponent,
-    Transformation3Component
+    Transformation3Component,
+    Transformation4Component,
+    Combine1Component,
+    Combine2Component,
+    Combine3Component,
+    Combine4Component
   ],
   imports: [
     BrowserModule,

@@ -1,0 +1,274 @@
+
+
+
+
+<h2 class="text-center">Transformation</h2>
+<div class="container" id="operatordescription">
+  <div class="row">
+    <div class="col-sm-12">
+      <span>The ways howto
+        <b>'horizontal combine / modify'</b> stream into another stream
+      </span>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-sm-4">
+
+      <div class="card">
+        <h3 class="card-header">VALUE</h3>
+      </div>
+
+    </div>
+    <div class="col-sm-4">
+
+      <div class="card">
+        <h3 class="card-header">.reduce()</h3>
+        <img class="card-img-top" src="assets/img/reduce.png" alt="Card image cap">
+      </div>
+
+    </div>
+    <div class="col-sm-4">
+
+      <div class="card">
+        <h3 class="card-header">.scan()</h3>
+        <img class="card-img-top" src="assets/img/scan.png" alt="Card image cap">
+      </div>
+
+    </div>
+
+  </div>
+</div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-sm-4">
+
+      <div class="card mydisable">
+        <div class="card-header">
+          Observable.interval(1000);
+        </div>
+        <div class="card-block">
+          <p class="card-text">{{value1$ | async}}</p>
+        </div>
+      </div>
+
+    </div>
+    <div class="col-sm-4">
+
+      <div class="card myattention">
+        <div class="card-header">
+          reduce(acc, curr) => acc + curr;
+        </div>
+        <div class="card-block">
+          <p class="card-text">{{value1_reduce}}</p>
+        </div>
+      </div>
+
+    </div>
+    <div class="col-sm-4">
+
+      <div class="card">
+        <div class="card-header">
+          scan(acc, curr) => acc + curr;
+        </div>
+        <div class="card-block">
+          <p class="card-text">{{value1_scan}}</p>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+</div>
+
+
+<div class="container">
+  <div class="row">
+    <div class="col-sm-4">
+
+      <div class="card mydisable">
+        <div class="card-header">
+          Observable .of(["a","b","c","d"]])
+        </div>
+        <div class="card-block">
+          <p class="card-text">{{value2$ | async}}</p>
+        </div>
+      </div>
+
+    </div>
+    <div class="col-sm-4">
+
+      <div class="card">
+        <div class="card-header">
+          reduce(acc, curr) => acc + curr;
+        </div>
+        <div class="card-block">
+          <p class="card-text">{{value2_reduce}}</p>
+        </div>
+      </div>
+
+    </div>
+    <div class="col-sm-4">
+
+      <div class="card">
+        <div class="card-header">
+          scan(acc, curr) => acc + curr;
+        </div>
+        <div class="card-block">
+          <p class="card-text">{{value2_scan}}</p>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+</div>
+
+
+
+<div class="container">
+  <div class="row">
+    <div class="col-sm-4">
+
+      <div class="card mydisable">
+        <div class="card-header">
+          Observable .from(["a","b","c","d"]])
+        </div>
+        <div class="card-block">
+          <p class="card-text">{{value3$ | async}}</p>
+        </div>
+      </div>
+
+    </div>
+    <div class="col-sm-4">
+
+      <div class="card">
+        <div class="card-header">
+          reduce(acc, curr) => acc + curr;
+        </div>
+        <div class="card-block">
+          <p class="card-text">{{value3_reduce}}</p>
+        </div>
+      </div>
+
+    </div>
+    <div class="col-sm-4">
+
+      <div class="card">
+        <div class="card-header">
+          scan(acc, curr) => acc + curr;
+        </div>
+        <div class="card-block">
+          <p class="card-text">{{value3_scan}}</p>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+</div>
+
+
+
+<div class="container">
+  <div class="row">
+    <div class="col-sm-4">
+
+      <div class="card mydisable">
+        <div class="card-header">
+          Observable .fromEvent(button, "click"])
+        </div>
+        <div class="card-body">
+          <button id="mybutton">CLICK</button>
+        </div>
+        <div class="card-block">
+          <p class="card-text">{{value5$ | async}}</p>
+        </div>
+      </div>
+
+    </div>
+    <div class="col-sm-4">
+
+      <div class="card myattention">
+        <div class="card-header">
+          reduce(acc, curr) => acc + curr;
+        </div>
+        <div class="card-block">
+          <p class="card-text">{{value5_reduce}}</p>
+        </div>
+      </div>
+
+    </div>
+    <div class="col-sm-4">
+
+      <div class="card">
+        <div class="card-header">
+          scan(acc, curr) => acc + curr;
+        </div>
+        <div class="card-block">
+          <p class="card-text">{{value5_scan}}</p>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+</div>
+
+
+<div class="container">
+  <div class="row">
+    <div class="col-sm-4">
+
+      <div class="card mydisable">
+        <div class="card-header">
+          Observable .fromEvent(document, "mousemove"])
+        </div>
+        <div class="card-block">
+          <p class="card-text">{{value4$ | async}}</p>
+        </div>
+      </div>
+
+    </div>
+    <div class="col-sm-4">
+
+      <div class="card myattention">
+        <div class="card-header">
+          reduce(acc, curr) => acc + curr;
+        </div>
+        <div class="card-block">
+          <p class="card-text">{{value4_reduce}}</p>
+        </div>
+      </div>
+
+    </div>
+    <div class="col-sm-4">
+
+      <div class="card">
+        <div class="card-header">
+          scan(acc, curr) => acc + curr;
+        </div>
+        <div class="card-block">
+          <p class="card-text">{{value4_scan}}</p>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
