@@ -16,6 +16,7 @@ import { Combine1Component } from './views/combine1/combine1.component';
 import { Combine2Component } from './views/combine2/combine2.component';
 import { Combine3Component } from './views/combine3/combine3.component';
 import { Combine4Component } from './views/combine4/combine4.component';
+import { PipeComponent } from './views/pipe/pipe.component';
 
 
 @NgModule({
@@ -30,7 +31,8 @@ import { Combine4Component } from './views/combine4/combine4.component';
     Combine1Component,
     Combine2Component,
     Combine3Component,
-    Combine4Component
+    Combine4Component,
+    PipeComponent
   ],
   imports: [
     BrowserModule,

@@ -11,6 +11,7 @@ import { Combine1Component } from './views/combine1/combine1.component';
 import { Combine2Component } from './views/combine2/combine2.component';
 import { Combine3Component } from './views/combine3/combine3.component';
 import { Combine4Component } from './views/combine4/combine4.component';
+import { PipeComponent } from './views/pipe/pipe.component';
 
 const routes: Routes = [
  { path: '', redirectTo: '/home', pathMatch: 'full' },
@@ -23,7 +24,8 @@ const routes: Routes = [
  { path: 'combine1', component: Combine1Component },
  { path: 'combine2', component: Combine2Component },
  { path: 'combine3', component: Combine3Component },
- { path: 'combine4', component: Combine4Component }
+ { path: 'combine4', component: Combine4Component },
+ { path: 'pipe', component: PipeComponent }
 ];
 
 @NgModule({

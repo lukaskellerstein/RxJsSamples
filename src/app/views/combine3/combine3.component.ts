@@ -39,7 +39,7 @@ export class Combine3Component implements OnInit {
       this.stream3$
     )
       .subscribe((value) => {
-        this.value1_a = value;
+        this.value1_a = value.toString();
       });
 
     Observable.merge(
@@ -48,7 +48,7 @@ export class Combine3Component implements OnInit {
       this.stream3$
     )
       .subscribe((value) => {
-        this.value1_b = value;
+        this.value1_b = value.toString();
       });
 
 
