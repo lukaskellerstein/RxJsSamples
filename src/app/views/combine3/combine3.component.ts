@@ -33,6 +33,21 @@ export class Combine3Component implements OnInit {
     this.stream3$ = Observable.interval(600);
     
 
+    this.stream1$.subscribe((item) => {
+         console.log(item)
+        } 
+    )
+
+    this.stream2$.subscribe((item) => {
+      console.log(item)
+     } 
+ )
+
+ this.stream3$.subscribe((item) => {
+  console.log(item)
+ } 
+)
+
     Observable.concat(
       this.stream1$,
       this.stream2$,
