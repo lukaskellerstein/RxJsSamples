@@ -13,3 +13,9 @@ Run `ng serve --watch` for a dev server. Navigate to `http://localhost:4201/`. T
 ## Tests
 
 Run `yarn test`
+
+# Recommended source
+
+Vizualization of Observables: https://rxviz.com/
+
+Observable playground: https://rxmarbles.com/#switchMap
