@@ -1,15 +1,13 @@
 <mat-sidenav-container class="example-container">
-  <mat-sidenav #sidenav mode="side">
- 
+  <mat-sidenav #sidenav
+    mode="side">
+
     <mat-nav-list>
       <mat-list-item>
         <a [routerLink]="[ '/home' ]">Home</a>
       </mat-list-item>
       <mat-list-item>
         <a [routerLink]="[ '/createread' ]">Create and Read</a>
-      </mat-list-item>
-      <mat-list-item>
-        <a [routerLink]="[ '/filtering' ]">Filtering</a>
       </mat-list-item>
       <mat-list-item>
         <a [routerLink]="[ '/transform1' ]">Transformation 1</a>
@@ -36,18 +34,20 @@
         <a [routerLink]="[ '/combine4' ]">Combining 4</a>
       </mat-list-item>
       <mat-list-item>
-          <a [routerLink]="[ '/pipe' ]">Pipe</a>
-        </mat-list-item>
+        <a [routerLink]="[ '/pipe' ]">Pipe</a>
+      </mat-list-item>
     </mat-nav-list>
- 
+
   </mat-sidenav>
- 
+
   <mat-sidenav-content>
     <mat-toolbar>
-      <i class="fa fa-bars" aria-hidden="true" (click)="sidenav.toggle()"></i>
+      <i class="fa fa-bars"
+        aria-hidden="true"
+        (click)="sidenav.toggle()"></i>
     </mat-toolbar>
     <div class="container">
       <router-outlet></router-outlet>
     </div>
   </mat-sidenav-content>
- </mat-sidenav-container>
+</mat-sidenav-container>

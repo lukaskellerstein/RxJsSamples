@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Observable } from 'rxjs';
+import { combineLatest, concat, forkJoin, from, merge, Observable, of, zip } from 'rxjs';
 
 @Component({
   selector: 'app-combine1',
@@ -7,8 +7,6 @@ import { Observable } from 'rxjs';
   styleUrls: ['./combine1.component.scss']
 })
 export class Combine1Component implements OnInit {
-
-
   stream1$: Observable<string>;
   stream2$: Observable<string>;
   stream3$: Observable<string>;
@@ -23,111 +21,74 @@ export class Combine1Component implements OnInit {
   value1_d: string;
   value1_e: string;
 
-
-
-  constructor() { }
+  constructor() {}
 
   ngOnInit() {
+    const stream1 = ['a', 'b', 'c', 'd'];
+    const stream2 = ['A', 'B', 'C', 'D'];
+    const stream3 = ['1', '2', '3', '4'];
 
-    const stream1 = ["a", "b", "c", "d"];
-    const stream2 = ["A", "B", "C", "D"];
-    const stream3 = ["1", "2", "3", "4"];
+    this.stream1$ = from(stream1);
+    this.stream2$ = from(stream2);
+    this.stream3$ = from(stream3);
 
-    this.stream1$ = Observable.from(stream1);
-    this.stream2$ = Observable.from(stream2);
-    this.stream3$ = Observable.from(stream3);
-
-
-    Observable.of(stream1).subscribe((value) => {
-
-      let result = "";
+    of(stream1).subscribe(value => {
+      let result = '';
       stream1.forEach(element => {
-        result += element + " - ";
+        result += element + ' - ';
       });
-      result += " |";
+      result += ' |';
 
       this.value1 = result;
     });
 
-    Observable.of(stream2).subscribe((value) => {
-
-      let result = "";
+    of(stream2).subscribe(value => {
+      let result = '';
       stream2.forEach(element => {
-        result += element + " - ";
+        result += element + ' - ';
       });
-      result += " |";
+      result += ' |';
 
       this.value2 = result;
     });
 
-    Observable.of(stream3).subscribe((value) => {
-
-      let result = "";
+    of(stream3).subscribe(value => {
+      let result = '';
       stream3.forEach(element => {
-        result += element + " - ";
+        result += element + ' - ';
       });
-      result += " |";
+      result += ' |';
 
       this.value3 = result;
     });
 
+    concat(this.stream1$, this.stream2$, this.stream3$).subscribe(value => {
+      this.value1_a = value;
+    });
 
+    merge(this.stream1$, this.stream2$, this.stream3$).subscribe(value => {
+      this.value1_b = value;
+    });
 
+    combineLatest(this.stream1$, this.stream2$, this.stream3$).subscribe(
+      ([timerValOne, timerValTwo, timerValThree]) => {
+        this.value1_c =
+          timerValOne + ' - ' + timerValTwo + ' - ' + timerValThree;
+      }
+    );
 
+    forkJoin(this.stream1$, this.stream2$, this.stream3$).subscribe(
+      ([timerValOne, timerValTwo, timerValThree]) => {
+        this.value1_d =
+          timerValOne + ' - ' + timerValTwo + ' - ' + timerValThree;
+      }
+    );
 
-
-    Observable.concat(
-      this.stream1$,
-      this.stream2$,
-      this.stream3$
-    )
-      .subscribe((value) => {
-        this.value1_a = value;
-      });
-
-    Observable.merge(
-      this.stream1$,
-      this.stream2$,
-      this.stream3$
-    )
-      .subscribe((value) => {
-        this.value1_b = value;
-      });
-
-
-    Observable.combineLatest(
-      this.stream1$,
-      this.stream2$,
-      this.stream3$
-    )
-      .subscribe(([timerValOne, timerValTwo, timerValThree]) => {
-
-        this.value1_c = timerValOne + " - " + timerValTwo + " - " + timerValThree;
-      });
-
-    Observable.forkJoin(
-      this.stream1$,
-      this.stream2$,
-      this.stream3$
-    )
-      .subscribe(([timerValOne, timerValTwo, timerValThree]) => {
-
-        this.value1_d = timerValOne + " - " + timerValTwo + " - " + timerValThree;
-      });
-
-
-      Observable.zip(
-        this.stream1$,
-        this.stream2$,
-        this.stream3$
-      )
-        .subscribe(([timerValOne, timerValTwo, timerValThree]) => {
-  
-          this.value1_e = timerValOne + " - " + timerValTwo + " - " + timerValThree;
-        });
-
-
-
+    zip(this.stream1$, this.stream2$, this.stream3$).subscribe(
+      ([timerValOne, timerValTwo, timerValThree]) => {
+        this.value1_e =
+          timerValOne + ' - ' + timerValTwo + ' - ' + timerValThree;
+      }
+    );
   }
-
 }
