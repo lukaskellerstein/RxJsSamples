@@ -1,0 +1,7 @@
+marble URST
+{
+    source obs1:        +-a----a---|
+    source obs2:        +a-b|
+    source obs3:        +a-------b-c|
+    operator concatMap: +-a-------b-cd-------e-fa-------b-cd-------e-f|
+}

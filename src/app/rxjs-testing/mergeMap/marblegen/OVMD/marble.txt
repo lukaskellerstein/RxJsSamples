@@ -1,0 +1,6 @@
+marble OVMD
+{
+    source obs1:        +-a--------a--b-|
+    source obs2:        +a-a-a|
+    operator mergeMap:  +-x-x-x----x-xyxy-y|
+}

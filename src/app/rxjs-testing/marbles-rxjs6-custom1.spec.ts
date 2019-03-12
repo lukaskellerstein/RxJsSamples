@@ -1,18 +1,32 @@
-import { concatMap, map, switchMap } from 'rxjs/operators';
+import matchers from 'jest-matchers/build/matchers';
+import { concatMap, map, mergeMap, switchMap } from 'rxjs/operators';
 import { TestScheduler } from 'rxjs/testing';
 
-fdescribe('RXJS 6 testing operators - CUSTOM 1', () => {
-  describe('SwitchMap', () => {
+import { diffTestMessages } from './utils';
+
+/**
+ * Simple Matcher which uses Jest nice diffs messages. Original `.toEqual` is not
+ * suitable because we'll pass it to TestScheduler and it must throw on error.
+ */
+function assertDeepEqual(actual, expected) {
+  const result = matchers.toEqual(actual, expected);
+
+  if (!result.pass) {
+    const diff = diffTestMessages(result.actual, result.expected);
+    throw diff + '\n' + result.message();
+  }
+}
+
+xdescribe('RXJS 6 testing operators - CUSTOM 1', () => {
+  describe('SwitchMap with context', () => {
     it('should maps each value to inner observable and flattens', () => {
-      const scheduler = new TestScheduler((actual, expected) => {
-        expect(actual).toEqual(expected);
-      });
+      const scheduler = new TestScheduler(assertDeepEqual);
 
       scheduler.run(helpers => {
         const { cold, expectObservable } = helpers;
 
         const obs1Values = {
-          x: ['name1', 'some text for name1']
+          x: ['name1']
         };
         const obs1 = cold('-x--------|', obs1Values);
 
@@ -23,38 +37,71 @@ fdescribe('RXJS 6 testing operators - CUSTOM 1', () => {
         const obs2 = cold('a-b|', obs2Values);
 
         const expectedValues = {
-          a: ['name1', 'some text for name1', 'system'],
-          b: ['name1', 'some text for name1', 'shared']
+          a: ['name1', 'system'],
+          b: ['name1', 'shared']
         };
-        const expected = '-b-b------|';
+        const expected = '-a-b------|';
 
         const result = obs1.pipe(
           switchMap((ctx: Array<any>) => {
-            // const _name = ctx[0];
-            // const _text = ctx[1];
-
-            console.log('switchMap1 - ctx:', ctx);
-
             return obs2.pipe(
               map((item: string) => {
-                console.log('switchMap1 - obs2 - ctx1:', ctx);
+                // ---------------------------------------------
+                // IT IS NECESSARY TO CREATE A NEW OBJECT !!!!!
+                // IN EACH PIPE SECTION
+                // OTHERWISE RESULT OF TEST WILL BE:
+                // -name1,system-name1,shared------| (Expected)
+                // -name1,shared-name1,shared------| (Received)
+                // ---------------------------------------------
+                let aa = [...ctx];
+                aa[1] = item;
+                return aa;
+              })
+            );
+          }),
+          map(data => {
+            return data;
+          })
+        );
 
-                ctx[2] = item;
+        expectObservable(result).toBe(expected, expectedValues);
+      });
+    });
+  });
 
-                console.log('switchMap1 - obs2 - ctx2:', ctx);
-                return ctx;
+  describe('SwitchMap with context (primitive)', () => {
+    it('should maps each value to inner observable and flattens', () => {
+      const scheduler = new TestScheduler(assertDeepEqual);
+
+      scheduler.run(helpers => {
+        const { cold, expectObservable } = helpers;
+
+        const obs1Values = {
+          x: 'name1'
+        };
+        const obs1 = cold('-x--------|', obs1Values);
+
+        const obs2Values = {
+          a: 'system',
+          b: 'shared'
+        };
+        const obs2 = cold('a-b|', obs2Values);
+
+        const expectedValues = {
+          a: 'name1-system',
+          b: 'name1-shared'
+        };
+        const expected = '-a-b------|';
+
+        const result = obs1.pipe(
+          switchMap((ctx: string) => {
+            return obs2.pipe(
+              map((item: string) => {
+                let aaa = `${ctx}-${item}`;
+                return aaa;
               })
             );
           })
-          // switchMap((ctx: Array<any>) => {
-          // 	// const _name = ctx[0];
-          // 	// const _text = ctx[1];
-          // 	// const _item = ctx[2];
-
-          // 	console.log('switchMap2 - ctx:', ctx);
-
-          // 	return of(ctx);
-          // })
         );
 
         expectObservable(result).toBe(expected, expectedValues);
@@ -64,15 +111,13 @@ fdescribe('RXJS 6 testing operators - CUSTOM 1', () => {
 
   describe('ConcatMap', () => {
     it('should maps each value to inner observable and flattens', () => {
-      const scheduler = new TestScheduler((actual, expected) => {
-        expect(actual).toEqual(expected);
-      });
+      const scheduler = new TestScheduler(assertDeepEqual);
 
       scheduler.run(helpers => {
         const { cold, expectObservable } = helpers;
 
         const obs1Values = {
-          x: ['name1', 'some text for name1']
+          x: ['name1']
         };
         const obs1 = cold('-x--------|', obs1Values);
 
@@ -83,36 +128,82 @@ fdescribe('RXJS 6 testing operators - CUSTOM 1', () => {
         const obs2 = cold('a-b|', obs2Values);
 
         const expectedValues = {
-          a: ['name1', 'some text for name1', 'system'],
-          b: ['name1', 'some text for name1', 'shared']
+          a: ['name1', 'system'],
+          b: ['name1', 'shared']
         };
-        const expected = '-b-b------|';
+        const expected = '-a-b------|';
 
         const result = obs1.pipe(
           concatMap((ctx: Array<any>) => {
-            // const _name = ctx[0];
-            // const _text = ctx[1];
-
-            console.log('switchMap1 - ctx:', ctx);
-
             return obs2.pipe(
               map((item: string) => {
-                ctx[2] = item;
-
-                console.log('switchMap1 - obs2 - ctx:', ctx);
-                return ctx;
+                // ---------------------------------------------
+                // IT IS NECESSARY TO CREATE A NEW OBJECT !!!!!
+                // IN EACH PIPE SECTION
+                // OTHERWISE RESULT OF TEST WILL BE:
+                // -name1,system-name1,shared------| (Expected)
+                // -name1,shared-name1,shared------| (Received)
+                // ---------------------------------------------
+                let aa = [...ctx];
+                aa[1] = item;
+                return aa;
               })
             );
+          }),
+          map(data => {
+            return data;
           })
-          // switchMap((ctx: Array<any>) => {
-          // 	// const _name = ctx[0];
-          // 	// const _text = ctx[1];
-          // 	// const _item = ctx[2];
+        );
 
-          // 	console.log('switchMap2 - ctx:', ctx);
+        expectObservable(result).toBe(expected, expectedValues);
+      });
+    });
+  });
 
-          // 	return of(ctx);
-          // })
+  describe('MergeMap', () => {
+    it('should maps each value to inner observable and flattens', () => {
+      const scheduler = new TestScheduler(assertDeepEqual);
+
+      scheduler.run(helpers => {
+        const { cold, expectObservable } = helpers;
+
+        const obs1Values = {
+          x: ['name1']
+        };
+        const obs1 = cold('-x--------|', obs1Values);
+
+        const obs2Values = {
+          a: 'system',
+          b: 'shared'
+        };
+        const obs2 = cold('a-b|', obs2Values);
+
+        const expectedValues = {
+          a: ['name1', 'system'],
+          b: ['name1', 'shared']
+        };
+        const expected = '-a-b------|';
+
+        const result = obs1.pipe(
+          mergeMap((ctx: Array<any>) => {
+            return obs2.pipe(
+              map((item: string) => {
+                // ---------------------------------------------
+                // IT IS NECESSARY TO CREATE A NEW OBJECT !!!!!
+                // IN EACH PIPE SECTION
+                // OTHERWISE RESULT OF TEST WILL BE:
+                // -name1,system-name1,shared------| (Expected)
+                // -name1,shared-name1,shared------| (Received)
+                // ---------------------------------------------
+                let aa = [...ctx];
+                aa[1] = item;
+                return aa;
+              })
+            );
+          }),
+          map(data => {
+            return data;
+          })
         );
 
         expectObservable(result).toBe(expected, expectedValues);

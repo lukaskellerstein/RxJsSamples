@@ -1,0 +1,6 @@
+marble BMIU
+{
+    source obs1:        +-a--------a--b-|
+    source obs2:        +a-a-a|
+    operator concatMap:  +-x-x-x----x-x-xy-y-y|
+}

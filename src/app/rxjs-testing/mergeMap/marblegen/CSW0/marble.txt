@@ -1,0 +1,8 @@
+marble CSW0
+{
+    source obs1:        +-a----a---|
+    source obs2:        +a-b|
+    operator mergeMap:  +-a-b--a---|
+    source obs3:        +a-------b-c|
+    operator mergeMap:  +-a-d--a-db-(ce)-fb-(ce)-f|
+}

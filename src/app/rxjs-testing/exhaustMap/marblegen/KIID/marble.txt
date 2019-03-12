@@ -1,0 +1,6 @@
+marble KIID
+{
+    source obs1:         +-a--------a--b-|
+    source obs2:         +a-a-a|
+    operator exhaustMap: +-x-x-x----x-x-x|
+}

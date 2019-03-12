@@ -1,0 +1,7 @@
+marble 6IRS
+{
+    source obs1:        +-a--------|
+    source obs2:        +a-b|
+    source obs3:        +a-------b-c|
+    operator concatMap: +-a-------b-cd-------e-f|
+}

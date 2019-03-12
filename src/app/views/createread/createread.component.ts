@@ -88,7 +88,6 @@ export class CreatereadComponent implements OnInit {
     this.value1$
       .pipe(
         tap(value => {
-          console.log(value);
           value = value + 'AAA'; //'TAP' operator, doesn't change the value !!!!!!
         })
       )
@@ -99,7 +98,6 @@ export class CreatereadComponent implements OnInit {
     this.value2$
       .pipe(
         tap(value => {
-          console.log(value);
           value = value + 'AAA'; //'TAP' operator, doesn't change the value !!!!!!
         })
       )
@@ -110,7 +108,6 @@ export class CreatereadComponent implements OnInit {
     this.value3$
       .pipe(
         tap(value => {
-          console.log(value);
           value = value + 'AAA'; //'TAP' operator, doesn't change the value !!!!!!
         })
       )
@@ -121,7 +118,6 @@ export class CreatereadComponent implements OnInit {
     this.value4$
       .pipe(
         tap(value => {
-          console.log(value);
           value = value + 'AAA'; //'TAP' operator, doesn't change the value !!!!!!
         })
       )
@@ -132,7 +128,6 @@ export class CreatereadComponent implements OnInit {
     this.value5$
       .pipe(
         tap(value => {
-          console.log(value);
           value = value + 'AAA'; //'TAP' operator, doesn't change the value !!!!!!
         })
       )

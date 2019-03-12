@@ -1,0 +1,8 @@
+marble NNOP
+{
+    source obs1:         +-a----a---|
+    source obs2:         +a-b|
+    operator exhaustMap: +-a--------|
+    source obs3:         +a-------b-c|
+    operator exhaustMap: +-a-------b-c|
+}

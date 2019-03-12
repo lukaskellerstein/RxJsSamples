@@ -1,0 +1,8 @@
+marble 6IRS
+{
+    source obs1:        +-a--------|
+    source obs2:        +a-b|
+    operator switchMap: +-a-b|
+    source obs3:        +a-------b-c|
+    operator switchMap: +-a-d-------e-f|
+}

@@ -1,0 +1,8 @@
+marble 23FE
+{
+    source obs1:        +-a--------|
+    source obs2:        +a-b|
+    operator mergeMap:  +-a-b------|
+    source obs3:        +a-------b-c|
+    operator mergeMap:  +-a-d-----b-(ce)-f|
+}
