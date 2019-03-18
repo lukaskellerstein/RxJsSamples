@@ -1,7 +1,7 @@
 import { concatMap, map, mapTo, mergeMap, switchMap } from 'rxjs/operators';
 import { TestScheduler } from 'rxjs/testing';
 
-xdescribe('RXJS 6 testing operators - BASICS', () => {
+describe('RXJS 6 testing operators - BASICS', () => {
   describe('Map', () => {
     it('should add "1" to each value emitted', () => {
       const scheduler = new TestScheduler((actual, expected) => {

@@ -5,7 +5,13 @@ import { Notification } from 'rxjs/internal/Notification';
 import { TestMessage } from 'rxjs/internal/testing/TestMessage';
 
 function notificationToMarble(notification: Notification<any>): string {
-  if (notification.kind === 'N') return notification.value || 'x';
+  if (notification.kind === 'N') {
+    if (notification.value instanceof Array) {
+      return `[${notification.value}]`;
+    }
+
+    return notification.value || 'x';
+  }
   if (notification.kind === 'E') return '#';
   if (notification.kind === 'C') return '|';
 }

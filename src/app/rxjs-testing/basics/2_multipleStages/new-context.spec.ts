@@ -2,7 +2,7 @@ import matchers from 'jest-matchers/build/matchers';
 import { concatMap, map, mergeMap, switchMap } from 'rxjs/operators';
 import { TestScheduler } from 'rxjs/testing';
 
-import { diffTestMessages } from './utils';
+import { diffTestMessages } from '../../utils';
 
 /**
  * Simple Matcher which uses Jest nice diffs messages. Original `.toEqual` is not
@@ -17,9 +17,9 @@ function assertDeepEqual(actual, expected) {
   }
 }
 
-xdescribe('RXJS 6 testing operators - CUSTOM 2', () => {
+describe('Multiple Stages - with recreating context', () => {
   describe('SwitchMap', () => {
-    describe('(multiple stages) var 1.', () => {
+    describe('var 1.', () => {
       it('should maps each value to inner observable and flattens', () => {
         const scheduler = new TestScheduler(assertDeepEqual);
 
@@ -89,7 +89,7 @@ xdescribe('RXJS 6 testing operators - CUSTOM 2', () => {
       });
     });
 
-    describe('(multiple stages) var 2.', () => {
+    describe('var 2.', () => {
       it('should maps each value to inner observable and flattens', () => {
         const scheduler = new TestScheduler(assertDeepEqual);
 
@@ -160,8 +160,8 @@ xdescribe('RXJS 6 testing operators - CUSTOM 2', () => {
     });
   });
 
-  describe('ConcatMap', () => {
-    describe('(multiple stages) var 1.', () => {
+  xdescribe('ConcatMap', () => {
+    describe('var 1.', () => {
       it('should maps each value to inner observable and flattens', () => {
         const scheduler = new TestScheduler(assertDeepEqual);
 
@@ -231,7 +231,7 @@ xdescribe('RXJS 6 testing operators - CUSTOM 2', () => {
       });
     });
 
-    xdescribe('(multiple stages) var 2.', () => {
+    describe('var 2.', () => {
       it('should maps each value to inner observable and flattens', () => {
         const scheduler = new TestScheduler(assertDeepEqual);
 
@@ -303,7 +303,7 @@ xdescribe('RXJS 6 testing operators - CUSTOM 2', () => {
   });
 
   xdescribe('MergeMap', () => {
-    describe('(multiple stages) var 1.', () => {
+    describe('var 1.', () => {
       it('should maps each value to inner observable and flattens', () => {
         const scheduler = new TestScheduler(assertDeepEqual);
 
@@ -373,7 +373,7 @@ xdescribe('RXJS 6 testing operators - CUSTOM 2', () => {
       });
     });
 
-    describe('(multiple stages) var 2.', () => {
+    describe('var 2.', () => {
       it('should maps each value to inner observable and flattens', () => {
         const scheduler = new TestScheduler(assertDeepEqual);
 

@@ -41,7 +41,6 @@
     "@types/jest": "^22.2.3",
     "@types/node": "~11.10.5",
     "codelyzer": "~4.5.0",
-    "jasmine-marbles": "^0.4.1",
     "jest": "^23.3.0",
     "jest-matchers": "^20.0.3",
     "jest-preset-angular": "^5.2.3",

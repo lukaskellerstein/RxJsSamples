@@ -2,7 +2,7 @@ import matchers from 'jest-matchers/build/matchers';
 import { concatMap, map, mergeMap, switchMap } from 'rxjs/operators';
 import { TestScheduler } from 'rxjs/testing';
 
-import { diffTestMessages } from './utils';
+import { diffTestMessages } from '../../utils';
 
 /**
  * Simple Matcher which uses Jest nice diffs messages. Original `.toEqual` is not
@@ -17,9 +17,9 @@ function assertDeepEqual(actual, expected) {
   }
 }
 
-xdescribe('RXJS 6 testing operators - CUSTOM 1', () => {
-  describe('SwitchMap with context', () => {
-    it('should maps each value to inner observable and flattens', () => {
+describe('One Stage - without recreating context', () => {
+  describe('SwitchMap', () => {
+    it('should return expected result', () => {
       const scheduler = new TestScheduler(assertDeepEqual);
 
       scheduler.run(helpers => {
@@ -40,22 +40,14 @@ xdescribe('RXJS 6 testing operators - CUSTOM 1', () => {
           a: ['name1', 'system'],
           b: ['name1', 'shared']
         };
-        const expected = '-a-b------|';
+        const expected = '-b-b------|';
 
         const result = obs1.pipe(
           switchMap((ctx: Array<any>) => {
             return obs2.pipe(
-              map((item: string) => {
-                // ---------------------------------------------
-                // IT IS NECESSARY TO CREATE A NEW OBJECT !!!!!
-                // IN EACH PIPE SECTION
-                // OTHERWISE RESULT OF TEST WILL BE:
-                // -name1,system-name1,shared------| (Expected)
-                // -name1,shared-name1,shared------| (Received)
-                // ---------------------------------------------
-                let aa = [...ctx];
-                aa[1] = item;
-                return aa;
+              map(item => {
+                ctx[1] = item;
+                return ctx;
               })
             );
           }),
@@ -69,48 +61,8 @@ xdescribe('RXJS 6 testing operators - CUSTOM 1', () => {
     });
   });
 
-  describe('SwitchMap with context (primitive)', () => {
-    it('should maps each value to inner observable and flattens', () => {
-      const scheduler = new TestScheduler(assertDeepEqual);
-
-      scheduler.run(helpers => {
-        const { cold, expectObservable } = helpers;
-
-        const obs1Values = {
-          x: 'name1'
-        };
-        const obs1 = cold('-x--------|', obs1Values);
-
-        const obs2Values = {
-          a: 'system',
-          b: 'shared'
-        };
-        const obs2 = cold('a-b|', obs2Values);
-
-        const expectedValues = {
-          a: 'name1-system',
-          b: 'name1-shared'
-        };
-        const expected = '-a-b------|';
-
-        const result = obs1.pipe(
-          switchMap((ctx: string) => {
-            return obs2.pipe(
-              map((item: string) => {
-                let aaa = `${ctx}-${item}`;
-                return aaa;
-              })
-            );
-          })
-        );
-
-        expectObservable(result).toBe(expected, expectedValues);
-      });
-    });
-  });
-
   describe('ConcatMap', () => {
-    it('should maps each value to inner observable and flattens', () => {
+    it('should return expected result', () => {
       const scheduler = new TestScheduler(assertDeepEqual);
 
       scheduler.run(helpers => {
@@ -131,22 +83,14 @@ xdescribe('RXJS 6 testing operators - CUSTOM 1', () => {
           a: ['name1', 'system'],
           b: ['name1', 'shared']
         };
-        const expected = '-a-b------|';
+        const expected = '-b-b------|';
 
         const result = obs1.pipe(
           concatMap((ctx: Array<any>) => {
             return obs2.pipe(
               map((item: string) => {
-                // ---------------------------------------------
-                // IT IS NECESSARY TO CREATE A NEW OBJECT !!!!!
-                // IN EACH PIPE SECTION
-                // OTHERWISE RESULT OF TEST WILL BE:
-                // -name1,system-name1,shared------| (Expected)
-                // -name1,shared-name1,shared------| (Received)
-                // ---------------------------------------------
-                let aa = [...ctx];
-                aa[1] = item;
-                return aa;
+                ctx[1] = item;
+                return ctx;
               })
             );
           }),
@@ -161,7 +105,7 @@ xdescribe('RXJS 6 testing operators - CUSTOM 1', () => {
   });
 
   describe('MergeMap', () => {
-    it('should maps each value to inner observable and flattens', () => {
+    it('should return expected result', () => {
       const scheduler = new TestScheduler(assertDeepEqual);
 
       scheduler.run(helpers => {
@@ -182,22 +126,14 @@ xdescribe('RXJS 6 testing operators - CUSTOM 1', () => {
           a: ['name1', 'system'],
           b: ['name1', 'shared']
         };
-        const expected = '-a-b------|';
+        const expected = '-b-b------|';
 
         const result = obs1.pipe(
           mergeMap((ctx: Array<any>) => {
             return obs2.pipe(
               map((item: string) => {
-                // ---------------------------------------------
-                // IT IS NECESSARY TO CREATE A NEW OBJECT !!!!!
-                // IN EACH PIPE SECTION
-                // OTHERWISE RESULT OF TEST WILL BE:
-                // -name1,system-name1,shared------| (Expected)
-                // -name1,shared-name1,shared------| (Received)
-                // ---------------------------------------------
-                let aa = [...ctx];
-                aa[1] = item;
-                return aa;
+                ctx[1] = item;
+                return ctx;
               })
             );
           }),
